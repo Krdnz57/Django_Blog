@@ -10,7 +10,7 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
-    <link rel="icon" href="../../static/blog/webicon.png" type="x/icon">
+    <link rel="icon" href="{% static 'blog/webicon.png' %}" type="x/icon">
 
     <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'blog/icons.css' %}">
@@ -27,7 +27,7 @@
         <nav class="navbar navbar-expand-md bg-primary">
             <div class="container">
                 <a class="logo navbar-brand" href="{% url 'blog-home' %}">
-                    <img src="../../static/blog/logo.png" height="57" alt="Logo">
+                    <img src="{% static 'blog/logo.png' %}" height="57" alt="Logo">
                 </a>
                 <button class="navbar-toggler ml-auto float-xs-right" type="button" data-toggle="collapse" data-target="#navbarToggle"
                     aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,6 +45,7 @@
                     <!-- Navbar Right Side -->
                     <div class="navbar-nav">
                         {% if user.is_authenticated %}
+                            <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
                             <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
                             <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                         {% else %}
